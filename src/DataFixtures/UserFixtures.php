@@ -23,14 +23,23 @@ class UserFixtures extends Fixture
         $user = new User();
         $user->setEmail('user@gmail.com');
         $user->setRoles(['ROLE_USER']);
-        $user->setPassword('user');
         $manager->persist($user);
+
+        $user->setPassword($this->passwordEncoder->encodePassword(
+            $user,
+        'user'
+        ));
 
         $user = new User();
         $user->setEmail('admin@gmail.com');
         $user->setRoles(['ROLE_ADMIN']);
-        $user->setPassword('admin');
+ 
         $manager->persist($user);
+
+        $user->setPassword($this->passwordEncoder->encodePassword(
+            $user,
+        'admin'
+        ));
 
         $user = new User();
         $user->setEmail('super_admin@gmail.com');
@@ -40,7 +49,7 @@ class UserFixtures extends Fixture
 
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user,
-        'the_new_password'
+        'super_admin'
         ));
         $manager->flush();
     }
