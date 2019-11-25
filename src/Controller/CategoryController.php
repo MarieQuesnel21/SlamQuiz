@@ -20,6 +20,8 @@ class CategoryController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository): Response
     {
+        $this ->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('category/index.html.twig', [
             'categories' => $categoryRepository->findAll(),
         ]);
@@ -30,6 +32,9 @@ class CategoryController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
+        $this ->denyAccessUnlessGranted('ROLE_ADMIN');
+    
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
@@ -53,6 +58,8 @@ class CategoryController extends AbstractController
      */
     public function show(Category $category): Response
     {
+        $this ->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('category/show.html.twig', [
             'category' => $category,
         ]);
@@ -65,6 +72,8 @@ class CategoryController extends AbstractController
     {
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
+
+        $this ->denyAccessUnlessGranted('ROLE_ADMIN');
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -83,6 +92,8 @@ class CategoryController extends AbstractController
      */
     public function delete(Request $request, Category $category): Response
     {
+        $this ->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($category);
