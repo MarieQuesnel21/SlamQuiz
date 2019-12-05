@@ -69,14 +69,5 @@ class SecurityController extends AbstractController
     // }
 
 
-    public function testNotShowCategory()
-    {
-        // Request /category 
-        $this->client->request('GET', '/category');
-
-        $this ->denyAccessUnlessGranted('ROLE_USER');
-        
-    }
-
- 
+    
 }
