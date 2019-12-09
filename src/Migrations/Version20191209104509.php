@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191209094121 extends AbstractMigration
+final class Version20191209104509 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,12 +22,13 @@ final class Version20191209094121 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('DROP SEQUENCE answer_id_seq CASCADE');
-        $this->addSql('CREATE SEQUENCE tbl_answer_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE tbl_answer (id INT NOT NULL, text VARCHAR(255) NOT NULL, correct BOOLEAN DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE tbl_answer (id INT NOT NULL, question_id INT NOT NULL, text VARCHAR(255) NOT NULL, correct BOOLEAN DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_577B239A1E27F6BF ON tbl_answer (question_id)');
         $this->addSql('CREATE TABLE tbl_category (id INT NOT NULL, shortname VARCHAR(50) NOT NULL, longname VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE tbl_question (id INT NOT NULL, text VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE tbl_user (id INT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_38B383A1E7927C74 ON tbl_user (email)');
+        $this->addSql('ALTER TABLE tbl_answer ADD CONSTRAINT FK_577B239A1E27F6BF FOREIGN KEY (question_id) REFERENCES tbl_question (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
     }
 
     public function down(Schema $schema) : void
@@ -36,10 +37,10 @@ final class Version20191209094121 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('DROP SEQUENCE tbl_answer_id_seq CASCADE');
-        $this->addSql('CREATE SEQUENCE answer_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('ALTER TABLE tbl_answer DROP CONSTRAINT FK_577B239A1E27F6BF');
         $this->addSql('DROP TABLE tbl_answer');
         $this->addSql('DROP TABLE tbl_category');
+        $this->addSql('DROP TABLE tbl_question');
         $this->addSql('DROP TABLE tbl_user');
     }
 }

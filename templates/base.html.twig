@@ -38,9 +38,10 @@
          
         {% endif %}
       </li>
-      <li class="nav-item">
+  
+       <li class="nav-item">
           {% if  is_granted('ROLE_ADMIN')%}
-        <a class="nav-link" href="{{path('answer_index')}}">Answer</a>
+        <a class="nav-link" href="{{path('question_index')}}">Question</a>
          {% endif %}
       </li>
    
