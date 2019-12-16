@@ -32,6 +32,13 @@ class CategoryFixtures extends Fixture
         $category->setLongname('Symfony version 4');
         $manager->persist($category);
 
+        
+        $category = new Category();
+        $category->setShortname('Math');
+        $category->setLongname('Mathématique');
+        $manager->persist($category);
+
+
         $manager->flush();    
     }
 }

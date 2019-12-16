@@ -43,6 +43,11 @@
         <a class="nav-link" href="{{path('answer_index')}}">Answer</a>
          {% endif %}
       </li>
+      {% if is_granted('ROLE_ADMIN') %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('question_index') }}">Question</a>
+        </li>
+    {% endif %}
    
     </ul>
     <form class="form-inline my-2 my-lg-0">

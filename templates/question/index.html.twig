@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Question index{% endblock %}
+
+{% block body %}
+    <h1>Question index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>{{ 'Question'|trans }}</th>
+               <th>{{ 'Date'|trans }}</th>
+                 <th>{{ 'Date'|trans }}</th>
+                <th>{{ 'Action'|trans }}</th>
+                <th>{{ 'Categories'|trans }}</th>
+                <th>{{ 'Answers'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.id }}</td>
+                <td>{{ question.text }}</td>
+                <td>{{ question.createdAt ? question.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ question.updatedAt ? question.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                     {% if is_granted('ROLE_ADMIN')  %}
+                        <a href="{{ path('question_show', {'id': question.id}) }}">{{ 'show'|trans }}</a>
+                        <a href="{{ path('question_edit', {'id': question.id}) }}">{{ 'edit'|trans }}</a>
+                     {% endif %}  
+                </td>
+                <td>
+                    {% for categorie in question.categories %}
+                        {{ categorie.shortname }}
+                    {% endfor %}
+                </td>
+                <td>
+                   {% if is_granted('ROLE_ADMIN')  %}
+                    {% for answer in question.answers %}
+                        {{ answer.text }}
+                    {% endfor %}
+                    {% endif %} 
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+         {{'Create new question with'|trans}}
+    <a href="{{ path('question_new', {'nb': 2}) }}">  {{'2 answers'|trans}}</a>,
+    <a href="{{ path('question_new', {'nb': 3}) }}"> {{'3 answers'|trans}}</a>
+   {{'or'|trans}}  <a href="{{ path('question_new', {'nb': 4}) }}">  {{'4 answers'|trans}}</a>
+{% endblock %}

@@ -43,7 +43,7 @@
       </trans-unit>
       <trans-unit id="U0M9PNE" resname="back to list">
         <source>back to list</source>
-        <target>Revenir a la liste</target>
+        <target>Revenir à la liste</target>
       </trans-unit>
       <trans-unit id="KSwG8AR" resname="Category">
         <source>Category</source>
@@ -60,6 +60,82 @@
       <trans-unit id="NSEiWmD" resname="Symfony is great!">
         <source>Symfony is great!</source>
         <target>Symfony est génial</target>
+      </trans-unit>
+      <trans-unit id="rrOZAIe" resname="delite">
+        <source>delite</source>
+        <target>_supprimer</target>
+      </trans-unit>
+      <trans-unit id="mcQKtAW" resname="Date">
+        <source>Date</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="ZM.xMZ0" resname="Action">
+        <source>Action</source>
+        <target>Action</target>
+      </trans-unit>
+      <trans-unit id="uLHYlMa" resname="Categories">
+        <source>Categories</source>
+        <target>Categories</target>
+      </trans-unit>
+      <trans-unit id="StCgpq5" resname="Answers">
+        <source>Answers</source>
+        <target>Réponce</target>
+      </trans-unit>
+      <trans-unit id="Y4T.p3E" resname="New user">
+        <source>New user</source>
+        <target>Nouvelle utilisateur</target>
+      </trans-unit>
+      <trans-unit id="hDMatXa" resname="Create new user">
+        <source>Create new user</source>
+        <target>Créer un nouvelle utilisateur</target>
+      </trans-unit>
+      <trans-unit id="KJr.ErB" resname="Question">
+        <source>Question</source>
+        <target>Question</target>
+      </trans-unit>
+      <trans-unit id="S9iCKr8" resname="Created_at">
+        <source>Created_at</source>
+        <target>Créer le</target>
+      </trans-unit>
+      <trans-unit id="0Y.II8I" resname="Updated_at">
+        <source>Updated_at</source>
+        <target>Mis à jour le </target>
+      </trans-unit>
+      <trans-unit id="wcEAnT8" resname="Update">
+        <source>Update</source>
+        <target>Mettre à jour</target>
+      </trans-unit>
+      <trans-unit id="FQn1YfJ" resname="Save">
+        <source>Save</source>
+        <target>Enregistrer</target>
+      </trans-unit>
+      <trans-unit id="ldY1tXH" resname="Create new question with">
+        <source>Create new question with</source>
+        <target>Créer une nouvelle question avec</target>
+      </trans-unit>
+      <trans-unit id="5VzXa2Z" resname="2 answers">
+        <source>2 answers</source>
+        <target>2 réponses</target>
+      </trans-unit>
+      <trans-unit id="l_USnPv" resname="3 answers">
+        <source>3 answers</source>
+        <target>3 réponses</target>
+      </trans-unit>
+      <trans-unit id="pCS30P3" resname="4 answers">
+        <source>4 answers</source>
+        <target>4 réponses</target>
+      </trans-unit>
+      <trans-unit id="cXVRejc" resname="or">
+        <source>or</source>
+        <target>ou</target>
+      </trans-unit>
+      <trans-unit id="E2JqnxS" resname="Create new Question">
+        <source>Create new Question</source>
+        <target>Créer une nouvelle question</target>
+      </trans-unit>
+      <trans-unit id="ZdrrN4v" resname="DELETE">
+        <source>DELETE</source>
+        <target>Supprimer</target>
       </trans-unit>
     </body>
   </file>
