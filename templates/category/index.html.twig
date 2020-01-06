@@ -49,6 +49,6 @@
     </table>
 
     {% if is_granted('ROLE_ADMIN') %}  
-    <a  class="btn btn-primary" href="{{ path('category_new') }}">Create new</a>
+    <a  class="btn btn-primary" href="{{ path('category_new') }}">{{'Create new'|trans}}</a>
     {% endif %}
 {% endblock %}

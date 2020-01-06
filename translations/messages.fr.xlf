@@ -137,6 +137,50 @@
         <source>DELETE</source>
         <target>Supprimer</target>
       </trans-unit>
+      <trans-unit id="GROigaa" resname="Disconnection">
+        <source>Disconnection</source>
+        <target>Déconnexion</target>
+      </trans-unit>
+      <trans-unit id="Y5pA6Cu" resname="Connection">
+        <source>Connection</source>
+        <target>Connection</target>
+      </trans-unit>
+      <trans-unit id="WjXOJaK" resname="User management">
+        <source>User management</source>
+        <target>Gestion user</target>
+      </trans-unit>
+      <trans-unit id="sqOqYCd" resname="Answer">
+        <source>Answer</source>
+        <target>Réponse</target>
+      </trans-unit>
+      <trans-unit id="nz33U6Q" resname="Create new">
+        <source>Create new</source>
+        <target>Nouveau</target>
+      </trans-unit>
+      <trans-unit id="FHNqLrn" resname="Role">
+        <source>Role</source>
+        <target>Rôle</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="ezuwN7u" resname="User index">
+        <source>User index</source>
+        <target>Index utilisateur</target>
+      </trans-unit>
+      <trans-unit id="tRLZfny" resname="User">
+        <source>User</source>
+        <target>Utilisateur</target>
+      </trans-unit>
+      <trans-unit id="BbiNGPw" resname="Edit user">
+        <source>Edit user</source>
+        <target>Editer utilisateur</target>
+      </trans-unit>
+      <trans-unit id="66niyCt" resname="Questionnaire">
+        <source>Questionnaire</source>
+        <target>Questionnaire</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

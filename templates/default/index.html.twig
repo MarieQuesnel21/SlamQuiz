@@ -4,16 +4,18 @@
 
 
 {% block body %}
-
+    <br><br>
+<h1>{% trans %}Symfony is great!{% endtrans %}</h1>
+    <br><br>
 <div class="example-wrapper">
-    <hr><hr>
+
     <button type="button" class="btn btn-outline-primary"><a href="{{ path ('user_index')}}">Liste des utilisateurs</a></button>
     <hr>
 </div>
 <button type="button" class="btn btn-outline-success">Success</button>
 
 
-<h1>{% trans %}Symfony is great!{% endtrans %}</h1>
+
 
 {% endblock %}
 

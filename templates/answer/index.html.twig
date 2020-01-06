@@ -38,6 +38,6 @@
     </table>
 
       {% if is_granted('ROLE_ADMIN') %}  
-    <a href="{{ path('answer_new') }}">Create new</a>
+    <a  class="btn btn-primary" href="{{ path('answer_new') }}">{{'Create new'|trans}}</a>
      {% endif %} 
 {% endblock %}

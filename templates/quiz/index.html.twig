@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz index{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>Quiz index</h1>
+    <br><br>
+    <table class="table" style="margin-left : -25%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Number_of_questions</th>
+                <th>Active</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Show_result_question</th>
+                <th>Show_result_quiz</th>
+                <th>Allow_anonymous_workout</th>
+                <th>Result_quiz_comment</th>
+                <th>Start_quiz_comment</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for quiz in quizzes %}
+            <tr>
+                <td>{{ quiz.id }}</td>
+                <td>{{ quiz.title }}</td>
+                <td>{{ quiz.summary }}</td>
+                <td>{{ quiz.numberOfQuestions }}</td>
+                <td>{{ quiz.active ? 'Yes' : 'No' }}</td>
+                <td>{{ quiz.createdAt ? quiz.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ quiz.updatedAt ? quiz.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ quiz.showResultQuestion ? 'Yes' : 'No' }}</td>
+                <td>{{ quiz.showResultQuiz ? 'Yes' : 'No' }}</td>
+                <td>{{ quiz.allowAnonymousWorkout ? 'Yes' : 'No' }}</td>
+                <td>{{ quiz.resultQuizComment }}</td>
+                <td>{{ quiz.startQuizComment }}</td>
+                <td>
+                    <a href="{{ path('quiz_show', {'id': quiz.id}) }}">show</a>
+                    <a href="{{ path('quiz_edit', {'id': quiz.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('quiz_new') }}">Create new</a>
+{% endblock %}

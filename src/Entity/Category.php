@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\table;
 use App\Entity\Category;
@@ -33,6 +35,19 @@ class Category
      */
     private $longname;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Quiz", mappedBy="category_quiz")
+     */
+    private $quizzes;
+
+
+
+    public function __construct()
+    {
+        $this->tbl_quiz_category = new ArrayCollection();
+        $this->quizzes = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,4 +76,34 @@ class Category
 
         return $this;
     }
+
+    /**
+     * @return Collection|Quiz[]
+     */
+    public function getQuizzes(): Collection
+    {
+        return $this->quizzes;
+    }
+
+    public function addQuiz(Quiz $quiz): self
+    {
+        if (!$this->quizzes->contains($quiz)) {
+            $this->quizzes[] = $quiz;
+            $quiz->addCategoryQuiz($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuiz(Quiz $quiz): self
+    {
+        if ($this->quizzes->contains($quiz)) {
+            $this->quizzes->removeElement($quiz);
+            $quiz->removeCategoryQuiz($this);
+        }
+
+        return $this;
+    }
+
+    
 }
