@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz index{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>Quiz index</h1>
+    <br><br>
+    
+        {% for quiz in quizzes %}
+            <a href="{{ path('quizuser_show', {'id': quiz.id}) }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">{{ quiz.title }}</a>
+        {% endfor %}
+
+
+    
+{% endblock %}

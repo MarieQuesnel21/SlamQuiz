@@ -78,6 +78,12 @@ class Quiz
      */
     private $start_quiz_comment;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Workout", mappedBy="quiz", cascade={"persist", "remove"})
+     */
+    private $workouts;
+
+
     public function __construct()
     {
         $this->category_quiz = new ArrayCollection();
@@ -245,4 +251,23 @@ class Quiz
 
         return $this;
     }
+
+    public function getWorkouts(): ?Workout
+    {
+        return $this->workouts;
+    }
+
+    public function setWorkouts(Workout $workouts): self
+    {
+        $this->workouts = $workouts;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $workouts->getQuiz()) {
+            $workouts->setQuiz($this);
+        }
+
+        return $this;
+    }
+
+   
 }

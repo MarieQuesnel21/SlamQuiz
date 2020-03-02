@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block body %}
+
+<style>
+    tr{
+       padding : 20px; 
+    }
+</style>
+
+    <h1>Quiz</h1>
+
+    <table class="table">
+        <tbody>
+           
+            <tr>
+                <th>Title</th>
+                <td>{{ quiz.title }}</td>
+            </tr>
+            <tr>
+                <th>Number_of_questions</th>
+                <td>{{ quiz.numberOfQuestions }}</td>
+            </tr>
+            <tr>
+                <th>Categories</th>
+                <td>
+                {% for category in quiz.categoryQuiz %}
+                    <ul>
+                        <li>
+                            {{ category.longname }}
+                        </li>
+                    </ul>
+                {% endfor %}
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <table >
+        <tr>
+            <td>
+                <p>Ce quiz nommé {{ quiz.title }} et composé de {{ quiz.numberOfQuestions }} question, et des catégories suivante 
+                    {% for category in quiz.categoryQuiz %}
+                                "{{ category.longname }}"
+                    {% endfor %}.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Commencer le teste</a>
+            </td>
+        </tr>
+
+    </table>
+{% endblock %}

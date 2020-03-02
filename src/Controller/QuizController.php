@@ -25,6 +25,8 @@ class QuizController extends AbstractController
         ]);
     }
 
+   
+
     /**
      * @Route("/new", name="quiz_new", methods={"GET","POST"})
      */
@@ -91,4 +93,7 @@ class QuizController extends AbstractController
 
         return $this->redirectToRoute('quiz_index');
     }
+
+    
+    
 }

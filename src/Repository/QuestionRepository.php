@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use App\Entity\Category;
+use Symfony\Component\Form\CategoryType;
 
 /**
  * @method Question|null find($id, $lockMode = null, $lockVersion = null)
@@ -25,6 +27,8 @@ class QuestionRepository extends ServiceEntityRepository
         $builder->orderBy('a.text', 'ASC');
         return $builder->getQuery()->getResult();
     }
+
+   
 
     // /**
     //  * @return Question[] Returns an array of Question objects

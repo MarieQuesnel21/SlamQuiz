@@ -19,7 +19,14 @@ class QuizRepository extends ServiceEntityRepository
         parent::__construct($registry, Quiz::class);
     }
 
-    // /**
+    public function findAllQuiz()
+    {
+        $builder = $this->createQueryBuilder('a');
+        $builder->orderBy('a.title', 'ASC');
+        return $builder->getQuery()->getResult();
+    }
+
+ 
     //  * @return Quiz[] Returns an array of Quiz objects
     //  */
     /*
