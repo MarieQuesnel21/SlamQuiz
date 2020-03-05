@@ -28,7 +28,14 @@ class QuestionRepository extends ServiceEntityRepository
         return $builder->getQuery()->getResult();
     }
 
-   
+   public function findOneRandomByCategories ($id)
+   {
+        $builder = $this->createQueryBuilder('a');
+        $builder->where('a.category = :id');
+        $builder->setParameter('id', $id);   
+
+        return $builder->getQuery()->getResult();
+   }
 
     // /**
     //  * @return Question[] Returns an array of Question objects

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Quiz;
+use App\Entity\Workout;
 use App\Form\QuizType;
 use App\Repository\QuizRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +24,7 @@ class QuizuserController extends AbstractController
     }
 
      /**
-     * @Route("/{id}", name="quizuser_show", methods={"GET"})
+     * @Route("/quizuser/{id}", name="quizuser_show", methods={"GET"})
      */
     public function show(Quiz $quiz): Response
     {
@@ -32,5 +33,17 @@ class QuizuserController extends AbstractController
         ]);
     }
 
+      /**
+     * @Route("/quizuserquestion/{id}", name="quizuser_question", methods={"GET"})
+     */
+    public function quizuser_question(QuizRepository $quizRepository,Quiz $quiz): Response
+    {
+        return $this->render('question/index.html.twig', [
+            'questions' => $questionRepository->findOneRandomByCategories(),
+        ]);
+
+              
+        
+    }
   
 }

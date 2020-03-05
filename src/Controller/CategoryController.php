@@ -103,5 +103,10 @@ class CategoryController extends AbstractController
         return $this->redirectToRoute('category_index');
     }
 
+    public function findOneRandomByCategories($categories): ?Question
+    {
+        // A COMPLETER
+    }
+
 
 }

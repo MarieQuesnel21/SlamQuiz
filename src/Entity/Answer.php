@@ -35,6 +35,8 @@ class Answer
      * @ORM\ManyToOne(targetEntity="App\Entity\Question", inversedBy="answers")
      */
     private $question;
+  
+    private $workout_correct_given = false;
 
     public function getId(): ?int
     {
@@ -73,6 +75,18 @@ class Answer
     public function setQuestion(?Question $question): self
     {
         $this->question = $question;
+
+        return $this;
+    }
+
+    public function getWorkoutCorrectGiven(): ?bool
+    {
+        return $this->WorkoutCorrectGiven; 
+    }
+    
+    public function setWorkoutCorrectGiven(): self
+    {
+        $this->WorkoutCorrectGiven = $WorkoutCorrectGiven;
 
         return $this;
     }
