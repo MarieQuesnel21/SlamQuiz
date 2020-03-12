@@ -28,13 +28,18 @@ class QuestionRepository extends ServiceEntityRepository
         return $builder->getQuery()->getResult();
     }
 
-   public function findOneRandomByCategories ($id)
+   public function findOneRandomByCategories ($categories): ?Question
    {
-        $builder = $this->createQueryBuilder('a');
-        $builder->where('a.category = :id');
-        $builder->setParameter('id', $id);   
 
-        return $builder->getQuery()->getResult();
+        $builder = $this->createQueryBuilder('a');
+        $builder->InnerJoin('a.categories', 'categories');
+        $builder->andWhere($builder->expr()->in('categories',
+            ':categories'))->setParameter('categories', $categories);
+
+        $questions = $builder->getQuery()->getResult();
+        $question = $questions[rand(1, sizeof($questions))-1];
+
+        return $question;
    }
 
     // /**

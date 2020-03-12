@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Question index{% endblock %}
+
+{% block body %}
+
+<style>
+ .table{
+    background-color: #e9ecef;
+    margin-top : 20%;
+    font-size : 30px;
+    font-weight: bold;
+ }
+
+ input {
+    margin: .4rem;
+}
+
+</style>
+    <table class="table">
+            <tr>
+                <td>
+                    Réponder à la question : {{ question.text }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% for answer in question.answers %}                        
+                        <input type="radio" id="{{ answer.text }}" name="question" value="{{ answer.text }}">
+                        <label for="{{ answer.text }}">{{ answer.text }}</label>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <center>
+                        <a href="" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Envoyer Réponse</a>
+                    </center>
+                </td>
+            </tr>
+    </table>
+{% endblock %}

@@ -51,9 +51,12 @@
         </tr>
         <tr>
             <td>
-                <a href="{{path('quizuser_question')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Commencer le teste</a>
+                {% for category in quiz.categoryQuiz %}
+                    <a href="{{path('quizuser_question', {'id': category.id}) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Commencer le teste</a>
+                {% endfor %}.
             </td>
         </tr>
-
+   
     </table>
+
 {% endblock %}
